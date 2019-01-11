@@ -1,6 +1,6 @@
 format ELF64 as 'o'
 
-public  f_rand
+public  rand
 extrn   __seed
 
 ; Implement Linear Congruential Generator (LCG)
@@ -10,7 +10,7 @@ MULTIPLIER      = 1103515245
 INCREMENT       = 12345
 
 section '.text' executable
-f_rand:
+rand:
         mov     rax, MULTIPLIER
         mul     qword [__seed]
         jno     @f
