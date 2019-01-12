@@ -11,7 +11,7 @@ tolower:
         test    rax, rax
         jz      @f
         xor     qword [rbp-8], $20
-@@:     mov     rdi, qword [rbp-8]
+@@:     mov     rax, qword [rbp-8]
         leave
         ret
 

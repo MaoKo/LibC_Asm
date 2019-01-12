@@ -3,7 +3,7 @@
 TARGET="libc_asm.a"
 ASM="fasm"
 
-if [[ "$1" == "clean" ]]; then
+if [[ "$1" == "clean" || "$1" == "clear" ]]; then
         rm -rf *.o
         rm -rf $TARGET
         exit

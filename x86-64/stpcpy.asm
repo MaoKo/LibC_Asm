@@ -1,19 +1,23 @@
 format ELF64 as 'o'
 
-public  strcat
+public  stpcpy
 
 extrn   strlen
-extrn   strncat
+extrn   memcpy
 
 section '.text' executable
-strcat:
+stpcpy:
         enter   16, 0
         mov     qword [rbp-8],  rdi
         mov     qword [rbp-16], rsi
+        xchg    rdi, rsi
         call    strlen
         mov     rdi, qword [rbp-8]
         mov     rsi, qword [rbp-16]
         mov     rdx, rax
-        call    strncat
+        mov     qword [rbp-8], rax
+        inc     rax
+        call    memcpy
+        add     rax, qword [rbp-8]
         leave
         ret

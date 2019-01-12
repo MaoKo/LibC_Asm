@@ -4,10 +4,10 @@ public  isupper
 
 section '.text' executable
 isupper:
-        mov     rax, 1
+        xor     rax, rax
         cmp     rdi, 41h
         jb      @f
         cmp     rdi, 5Ah
         ja      @f
-        xor     rax, rax
+        mov     rax, 1
 @@:     ret

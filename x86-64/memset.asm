@@ -9,6 +9,6 @@ memset:
         mov     rcx, rdx
         cld
         rep
-        lodsb
+        stosb
         mov     rax, r8
         ret
